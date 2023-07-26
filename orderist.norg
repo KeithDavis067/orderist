@@ -1,0 +1,38 @@
+@document.meta
+title: orderist 
+description: Norg file that outputs python code for creating new behavior in todoist.
+authors: kwdprof@gmail.com
+categories: 
+created: 2023-07-24
+updated: 2023-07-26
+version: 1.1.1
+tangle: ./orderist.py
+@end
+
+* Purpose
+  This document is designed to give me a chance to work on making todoist a useful option.
+* Goal Definitions.
+  $ {# Grand Order}
+  The Grand Order uses the "next action" philosophy of autodoist to build a list of tasks in order. The specification is as follows.
+  - In Todoist's main list, the order of the projects, sections, tasks, and subtasks determines the order of the next action report.
+  -- To move the order, go to the main system and move the order of the item.
+  -- *Corollary:* Tasks of a project will be 
+  $ {# Autocontext}
+  A method of adding context to subtasks by noting a part of the supertasks name as context and applying that to the beginning of the subtask's name separated by a `.`.
+
+  
+
+* Implementation and discussion notes.
+** Grand Order
+Use autodoist's syntax to label projects, tasks with subtasks and sections as odered or parallel.
+  In the description of a task, or the name of a section or subtask `<-` refers to the previous tasks via a link to the task, while `->` refers to the next tasks in line.
+  The goal is to visualize the links between all tasks as a knotted tree.
+  I will probably need to use one of python's nextwork modules (networkx probably) to ensure:
+   - The total network is directional, or causative. 
+
+** Autocontext.
+   Although it would be better to do something more neorg compatible, it was driving me crazy.
+   For now we will simple wrap the context identifier in square brackets `[`, as an indicator that it's the text in front of the link to the supertask.
+
+
+
